@@ -1,4 +1,4 @@
-# rails-clickhouse-demo
+# clickhouse-rails-demo
 
 ## env
 
@@ -6,7 +6,7 @@
 rbenv install 2.7.2
 rbenv local 2.7.2
 gem install rails -v 6.0.4.3
-rails _6.0.4.3_ new ch-demo
+rails _6.0.4.3_ new clickhouse-rails-demo
 ```
 
 ## install
@@ -14,7 +14,7 @@ rails _6.0.4.3_ new ch-demo
 go to the rails app folder
 
 ```sh
-cd ch-demo
+cd clickhouse-rails-demo
 ```
 
 ```sh
