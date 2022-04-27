@@ -1,24 +1,63 @@
-# README
+# rails-clickhouse-demo
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## env
 
-Things you may want to cover:
+```sh
+rbenv install 2.7.2
+rbenv local 2.7.2
+gem install rails -v 6.0.4.3
+rails _6.0.4.3_ new ch-demo
+```
 
-* Ruby version
+## install
 
-* System dependencies
+go to the rails app folder
 
-* Configuration
+```sh
+cd ch-demo
+```
 
-* Database creation
+```sh
+bundle add click_house
+```
 
-* Database initialization
+## [config](https://github.com/shlima/click_house#using-with-rails)
 
-* How to run the test suite
+```sh
+rake click_house:drop click_house:create
+rake click_house:drop click_house:create RAILS_ENV=production
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## test
 
-* Deployment instructions
+```sh
+bundle exec rails c
+```
 
-* ...
+```ruby
+ClickHouse.connection.ping #=> true
+```
+
+### select
+
+```ruby
+ClickHouse.connection.select_all('SELECT * FROM events_local')
+```
+
+### explain
+
+```ruby
+ClickHouse.connection.explain('SELECT * FROM events_local')
+```
+
+### Execute Raw SQL
+
+need to parse the raw response, might not be the best way
+
+```ruby
+response = ClickHouse.connection.execute <<~SQL
+  SELECT count(*) AS count FROM events_local
+SQL
+
+response.body #=> "0\n"
+```
