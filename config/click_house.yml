@@ -6,13 +6,13 @@ default: &default
   password: admin
 
 development:
-  database: test_development
   <<: *default
+  database: test_development
 
 test:
-  database: test_test
   <<: *default
+  database: test_test
 
 production:
-  database: test
   <<: *default
+  database: test

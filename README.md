@@ -61,3 +61,25 @@ SQL
 
 response.body #=> "0\n"
 ```
+
+## hack with ActiveRecord
+
+create the empty database on sqlite3
+
+```sh
+bundle exec rails db:migrate
+```
+
+```sh
+bundle exec rails c
+```
+
+```ruby
+EventsLocal.where(article_id: 42).select_one
+```
+
+```
+SQL (Total: 5MS, CH: 1MS)[0m SELECT "events_local".* FROM "events_local" WHERE "events_local"."article_id" = 42 FORMAT JSON;;
+                                                                                                                             Read: 100 rows, 2.6KiB. Written: 0 rows, 0B
+=> {"event_date"=>Tue, 21 Jun 2022, "event_type"=>0, "article_id"=>42, "title"=>"my title"}
+```
