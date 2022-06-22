@@ -64,7 +64,7 @@ response.body #=> "0\n"
 
 ## hack with ActiveRecord
 
-create the empty database on sqlite3
+create the empty tables on sqlite3
 
 ```sh
 bundle exec rails db:migrate
