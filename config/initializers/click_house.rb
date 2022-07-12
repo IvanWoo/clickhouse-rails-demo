@@ -11,7 +11,7 @@ end
 
 # dummy singleton class to wrap the connection pool scope
 # https://refactoring.guru/design-patterns/singleton/ruby/example#example-1 
-class ClickHouseConnection
+class ClickHouseConnectionClass
   @instance = new
 
   private_class_method :new
@@ -50,3 +50,5 @@ class ClickHouseConnection
     end
   end
 end
+
+ClickHouseConnection = ClickHouseConnectionClass.instance

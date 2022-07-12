@@ -35,19 +35,19 @@ bundle exec rails c
 ```
 
 ```ruby
-ClickHouseConnection.instance.ping #=> true
+ClickHouseConnection.ping #=> true
 ```
 
 ### select
 
 ```ruby
-ClickHouseConnection.instance.select_all('SELECT * FROM events_local')
+ClickHouseConnection.select_all('SELECT * FROM events_local')
 ```
 
 ### explain
 
 ```ruby
-ClickHouseConnection.instance.explain('SELECT * FROM events_local')
+ClickHouseConnection.explain('SELECT * FROM events_local')
 ```
 
 ### Execute Raw SQL
@@ -55,7 +55,7 @@ ClickHouseConnection.instance.explain('SELECT * FROM events_local')
 need to parse the raw response, might not be the best way
 
 ```ruby
-response = ClickHouseConnection.instance.execute <<~SQL
+response = ClickHouseConnection.execute <<~SQL
   SELECT count(*) AS count FROM events_local
 SQL
 
