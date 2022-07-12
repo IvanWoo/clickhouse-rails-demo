@@ -4,15 +4,14 @@ default: &default
   open_timeout: 3
   username: analytics
   password: admin
+  database: test
+
+production:
+  <<: *default
 
 development:
   <<: *default
-  database: test_development
 
 test:
   <<: *default
   database: test_test
-
-production:
-  <<: *default
-  database: test

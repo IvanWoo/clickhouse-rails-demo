@@ -54,3 +54,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "click_house", "~> 1.6"
+
+gem "connection_pool", "~> 2.2"
