@@ -1,3 +1,4 @@
+require 'singleton'
 require 'connection_pool'
 
 ClickHouse.config do |config|
@@ -9,16 +10,8 @@ ClickHouse.connection = ConnectionPool.new(size: 2) do
   ClickHouse::Connection.new(ClickHouse.config)
 end
 
-# dummy singleton class to wrap the connection pool scope
-# https://refactoring.guru/design-patterns/singleton/ruby/example#example-1 
 class ClickHouseConnectionClass
-  @instance = new
-
-  private_class_method :new
-
-  def self.instance
-    @instance
-  end
+  include Singleton
 
   def ping
     ClickHouse.connection.with do |conn|

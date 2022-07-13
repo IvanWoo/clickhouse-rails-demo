@@ -7,7 +7,7 @@ class ClickhouseRecord < ActiveRecord::Base
 
   class << self
     def agent
-      ClickHouseConnection.instance
+      ClickHouseConnection
     end
 
     def select_one
