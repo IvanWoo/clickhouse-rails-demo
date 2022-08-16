@@ -1,5 +1,10 @@
 # clickhouse-rails-demo
 
+## prerequisites
+
+- setup [ClickHouse](https://clickhouse.com/) based on [IvanWoo/clickhouse-cluster-operations](https://github.com/IvanWoo/clickhouse-cluster-operations)
+- install [rbenv](https://github.com/rbenv/rbenv)
+
 ## env
 
 ```sh

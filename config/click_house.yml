@@ -1,9 +1,9 @@
 default: &default
-  url: http://localhost:8123
+  url: <%= ENV["CLICKHOUSE_URL"] %>
+  username: <%= ENV["CLICKHOUSE_USERNAME"] %>
+  password: <%= ENV["CLICKHOUSE_PASSWORD"] %>
   timeout: 60
   open_timeout: 3
-  username: analytics
-  password: admin
   database: test
 
 production:
